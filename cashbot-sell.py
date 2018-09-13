@@ -35,7 +35,7 @@ while 1:
 	print "[",tiempo,"]     Cuenta:",user['name'],"!"
 	print "[",tiempo,"] ID usuario:",acid
 	print "[",tiempo,"]  ID cuenta:",idcuenta
-	print "[",tiempo,"]     1 ETH =\033[0;36;m",price['amount'],"EUR\033[0;37;m"
+	print "[",tiempo,"]     1 ETH =",price['amount'],"EUR"
 	print "[",tiempo,"] P. Compra =",c['amount']
 	print "[",tiempo,"]  P. Venta =",d['amount']
 	print "[",tiempo,"]   P. Spot =",e['amount']
@@ -52,7 +52,7 @@ while 1:
 	ultimafecha = ultimafecha.replace("Z", "")
 	print "[",tiempo,"] Ultima transaccion:",fue,ultimatx, "ETH -",ultimafecha
 	print "[",tiempo,"] Programaste VENDER cuando el ETH llegara a",vendercuando,"EUR!"
-	if price['amount'] => vendercuando:
+	if price['amount'] > vendercuando:
 		print "[",tiempo,"] El precio ahora es de",price['amount'],"EUR, superior a los",vendercuando,"EUR que estableciste, por lo que vamos a vender",cantidad,"ETH!"
 		payment_methods = client.get_payment_methods()
 		sell = account.sell(amount=cantidad,
@@ -63,7 +63,3 @@ while 1:
 		print "[",tiempo,"] El precio ahora es de",price['amount'],"EUR, no vendemos!"
 		print "[",tiempo,"] Esperamos un minuto y volvemos a empezar..."
 		time.sleep(60)
-
-
-
-
